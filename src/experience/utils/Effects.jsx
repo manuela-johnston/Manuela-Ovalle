@@ -3,7 +3,7 @@ import { SSR, DepthOfField, EffectComposer } from '@react-three/postprocessing'
 export default function Effects() {
   return (
     <EffectComposer>
-      <SSR
+      {/* <SSR
         intensity={0.45}
         exponent={1}
         distance={10}
@@ -28,8 +28,8 @@ export default function Effects() {
         useRoughnessMap={true}
         resolutionScale={1}
         velocityResolutionScale={1}
-      />
-      <DepthOfField focusDistance={0.01} bokehScale={3} />
+      /> */}
+      {/* <DepthOfField focusDistance={0.01} bokehScale={3} /> */}
     </EffectComposer>
   )
 }

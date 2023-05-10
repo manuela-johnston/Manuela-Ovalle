@@ -4,7 +4,7 @@ import { useKeyboardControls } from '@react-three/drei'
 import { useState, useEffect, useRef } from 'react'
 import * as THREE from 'three'
 
-import useGame from './stores/useGame'
+import useGame from '../../stores/useGame'
 
 export default function Player() {
   const body = useRef()
@@ -15,6 +15,8 @@ export default function Player() {
   const [smoothedCameraPosition] = useState(() => new THREE.Vector3(10, 10, 10))
   const [smoothedCameraTarget] = useState(() => new THREE.Vector3())
 
+  const ready = useGame((state) => state.phase.ready)
+  const explore = useGame((state) => state.explore)
   const start = useGame((state) => state.start)
   const end = useGame((state) => state.end)
   const restart = useGame((state) => state.restart)
@@ -41,12 +43,14 @@ export default function Player() {
 
   //Each frame
   useEffect(() => {
+    //Setting state to Reset from ready
     const unsubscribeReset = useGame.subscribe(
       (state) => state.phase,
       (phase) => {
         if (phase === 'ready') reset()
       }
     )
+
     const unsubscribedJump = subscribedKeys(
       (state) => state.jump,
       (value) => {
@@ -54,8 +58,9 @@ export default function Player() {
       }
     )
 
+    //PRESSING ANY BUTTON
     const unsubscribedAny = subscribedKeys(() => {
-      start()
+      null
     })
 
     return () => {
@@ -107,7 +112,7 @@ export default function Player() {
 
     const cameraPosition = new THREE.Vector3()
     cameraPosition.copy(bodyPosition)
-    cameraPosition.z += 2.25
+    cameraPosition.z += 4.25
     cameraPosition.y += 0.65
 
     const cameraTarget = new THREE.Vector3()
@@ -124,8 +129,9 @@ export default function Player() {
     /**
      * Phases
      */
+    if (bodyPosition.z > 0) explore()
+    if ((bodyPosition.z = 0)) start()
     if (bodyPosition.z < -(blocksCount * 4 + 2)) end()
-
     if (bodyPosition.y < -4) restart()
   })
 

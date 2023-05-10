@@ -1,11 +1,14 @@
 import { useKeyboardControls } from '@react-three/drei'
-import useGame from './stores/useGame'
+import useGame from '../../stores/useGame'
 import { useEffect, useRef } from 'react'
 import { addEffect } from '@react-three/fiber'
 
 export default function Interface() {
+  // STATE
+
   const time = useRef()
   const restart = useGame((state) => state.restart)
+  const start = useGame((state) => state.start)
   const phase = useGame((state) => state.phase)
 
   const forward = useKeyboardControls((state) => state.forward)
@@ -14,10 +17,11 @@ export default function Interface() {
   const rightward = useKeyboardControls((state) => state.rightward)
   const jump = useKeyboardControls((state) => state.jump)
 
+  // HANDLING THE TIME IN GAME
   useEffect(() => {
     const unsubscribeEffect = addEffect(() => {
       const state = useGame.getState()
-
+      //console.log(state)
       let elapsedTime = 0
 
       if (state.phase === 'playing') elapsedTime = Date.now() - state.startTime
@@ -30,23 +34,54 @@ export default function Interface() {
       if (time.current) time.current.textContent = elapsedTime
     })
 
+    // //Event Handler for starting the game
+    // const startGameHandler = addEffect(() => {
+    //   start()
+    // })
+
+    // //Event Handler for Finishing the game
+    // const endGameHandler = () => {
+    //   end()
+    // }
+
     return () => {
       unsubscribeEffect()
+      // startGameHandler()
+      // endGameHandler()
     }
   }, [])
 
   return (
     <>
       <div className="interface">
+        {/* Start Game */}
+        {phase === 'explore' && (
+          <>
+            <button className="startGame" onClick={start}>
+              Start the Game
+            </button>
+
+            <div ref={time} className="time">
+              0.00
+            </div>
+          </>
+        )}
+
         {/* Timer */}
-        <div ref={time} className="time">
-          0.00
-        </div>
+
         {/* Restart */}
         {phase === 'ended' && (
-          <div className="restart" onClick={restart}>
-            RESTART
-          </div>
+          <>
+            <div className="restart" onClick={restart}>
+              RESTART
+            </div>
+            <div ref={time} className="time">
+              0.00
+            </div>
+            <button className="endGame" onClick={end}>
+              Go back to portfolio
+            </button>
+          </>
         )}
 
         {/* Controls */}

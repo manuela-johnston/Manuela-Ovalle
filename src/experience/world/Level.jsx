@@ -3,6 +3,7 @@ import { RigidBody, CuboidCollider } from '@react-three/rapier'
 import { useRef, useState, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Float, Text, useGLTF } from '@react-three/drei'
+import Shapes from './Shapes'
 
 THREE.ColorManagement.legacyMode = false
 
@@ -18,21 +19,55 @@ const floor2Material = new THREE.MeshStandardMaterial({
   metalness: 0,
   roughness: 0,
 })
-const obstacleMaterial = new THREE.MeshStandardMaterial({
-  color: '#ff0000',
-  metalness: 0,
-  roughness: 1,
-})
-const wallMaterial = new THREE.MeshStandardMaterial({
-  color: '#887777',
+const floor3Material = new THREE.MeshStandardMaterial({
+  color: '#0000ff',
   metalness: 0,
   roughness: 0,
 })
+const obstacleMaterial = new THREE.MeshNormalMaterial({})
+const wallMaterial = new THREE.MeshStandardMaterial({
+  color: '#ffffff',
+  transparent: true,
+  opacity: 0.0,
+})
+
+export function BlockPortfolio({ position = [0, 0, 0] }) {
+  return (
+    <>
+      {/* PORTFOLIO LEVEL */}
+      <group position={position}>
+        <Float floatIntensity={0.25} rotationIntensity={0.25}>
+          <Text
+            font="./bebas-neue-v9-latin-regular.woff"
+            scale={0.5}
+            maxWidth={0.25}
+            lineHeight={0.75}
+            textAlign="right"
+            position={[0.75, 0.65, 6]}
+            rotation-y={-0.25}
+          >
+            Manuela Ovalle
+            <meshBasicMaterial toneMapped={false} />
+          </Text>
+        </Float>
+        <RigidBody type="fixed">
+          <mesh
+            geometry={boxGeometry}
+            material={floor3Material}
+            position={[0, -0.1, 0]}
+            scale={[4, 0.2, 12]}
+            receiveShadow
+          />
+        </RigidBody>
+      </group>
+    </>
+  )
+}
 
 export function BlockStart({ position = [0, 0, 0] }) {
   return (
     <>
-      {/* STARTING FLOOR */}
+      {/* STARTING LEVEL */}
       <group position={position}>
         <Float floatIntensity={0.25} rotationIntensity={0.25}>
           <Text
@@ -44,7 +79,7 @@ export function BlockStart({ position = [0, 0, 0] }) {
             position={[0.75, 0.65, 0]}
             rotation-y={-0.25}
           >
-            Marble Race
+            Start the game
             <meshBasicMaterial toneMapped={false} />
           </Text>
         </Float>
@@ -256,7 +291,6 @@ function Bounds({ length = 1 }) {
           geometry={boxGeometry}
           material={wallMaterial}
           scale={[0.3, 1.5, 4 * length]}
-          castShadow
         />
 
         {/* LEFT WALL */}
@@ -265,7 +299,6 @@ function Bounds({ length = 1 }) {
           geometry={boxGeometry}
           material={wallMaterial}
           scale={[0.3, 1.5, 4 * length]}
-          receiveShadow
         />
 
         {/* BACK WALL */}
@@ -274,7 +307,6 @@ function Bounds({ length = 1 }) {
           geometry={boxGeometry}
           material={wallMaterial}
           scale={[4, 1.5, 0.3]}
-          receiveShadow
         />
         <CuboidCollider
           args={[2, 0.1, 2 * length]}
@@ -305,13 +337,14 @@ export function Level({
 
   return (
     <>
+      <BlockPortfolio position={[0, 0, 8]} />
       <BlockStart position={[0, 0, 0]} />
       {blocks.map((Block, index) => (
         <Block key={index} position={[0, 0, -(index + 1) * 4]} />
       ))}
 
       <BlockEnd position={[0, 0, -(count + 1) * 4]} />
-
+      <Shapes />
       <Bounds length={count + 2} />
     </>
   )

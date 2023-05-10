@@ -18,8 +18,17 @@ export default create(
        */
       phase: 'ready',
 
+      explore: () => {
+        set((state) => {
+          if (state.phase === 'explore') return { phase: 'explore' }
+
+          return {}
+        })
+      },
+
       start: () => {
         set((state) => {
+          console.log('playing phase')
           if (state.phase === 'ready')
             return { phase: 'playing', startTime: Date.now() }
 
