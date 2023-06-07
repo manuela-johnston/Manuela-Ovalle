@@ -1,36 +1,35 @@
 import './style.css'
 import ReactDOM from 'react-dom/client'
-import { Canvas } from '@react-three/fiber'
-import { KeyboardControls } from '@react-three/drei'
+import * as React from 'react'
 
-import Experience from './experience/Experience.jsx'
-import Interface from './experience/utils/interface.jsx'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+//Pages
+import App from '../App'
+import StaticPage from './static/2dSite.jsx'
+import Space from '../Space.jsx'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+  },
+  {
+    path: '2d',
+    element: <StaticPage />,
+  },
+  {
+    path: '3d',
+    element: <Space />,
+  },
+])
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
   <>
-    <KeyboardControls
-      map={[
-        { name: 'forward', keys: ['ArrowUp', 'KeyW'] },
-        { name: 'backward', keys: ['ArrowDown', 'KeyS'] },
-        { name: 'leftward', keys: ['ArrowLeft', 'KeyA'] },
-        { name: 'rightward', keys: ['ArrowRight', 'KeyD'] },
-        { name: 'jump', keys: ['Space'] },
-      ]}
-    >
-      <Canvas
-        shadows
-        camera={{
-          fov: 45,
-          near: 0.1,
-          far: 200,
-          position: [2.5, 4, 6],
-        }}
-      >
-        <Experience />
-      </Canvas>
-      <Interface />
-    </KeyboardControls>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
   </>
 )

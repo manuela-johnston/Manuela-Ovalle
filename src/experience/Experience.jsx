@@ -9,6 +9,7 @@ import useGame from '../stores/useGame'
 import Effects from './utils/Effects'
 import Stars from './world/Sparkles'
 import Shapes from './world/Shapes'
+import Overlay from './utils/Overlay'
 
 export default function Experience() {
   //leva
@@ -23,6 +24,7 @@ export default function Experience() {
 
       <Physics>
         <Lights />
+
         <Level count={blocksCount} seed={blocksSeed} />
         <Player />
       </Physics>

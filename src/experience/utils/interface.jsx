@@ -10,6 +10,7 @@ export default function Interface() {
   const restart = useGame((state) => state.restart)
   const start = useGame((state) => state.start)
   const phase = useGame((state) => state.phase)
+  const end = useGame((state) => state.end)
 
   const forward = useKeyboardControls((state) => state.forward)
   const backward = useKeyboardControls((state) => state.backward)
@@ -54,20 +55,27 @@ export default function Interface() {
   return (
     <>
       <div className="interface">
-        {/* Start Game */}
-        {phase === 'explore' && (
+        {/* Before the game */}
+        {phase === 'exploring' && (
           <>
             <button className="startGame" onClick={start}>
               Start the Game
             </button>
+          </>
+        )}
 
+        {/* Start Game */}
+        {phase === 'playing' && (
+          <>
+            <button className="startGame" onClick={start}>
+              Start the Game
+            </button>
+            {/* Timer */}
             <div ref={time} className="time">
               0.00
             </div>
           </>
         )}
-
-        {/* Timer */}
 
         {/* Restart */}
         {phase === 'ended' && (
@@ -78,7 +86,7 @@ export default function Interface() {
             <div ref={time} className="time">
               0.00
             </div>
-            <button className="endGame" onClick={end}>
+            <button className="endGame" onClick={restart}>
               Go back to portfolio
             </button>
           </>

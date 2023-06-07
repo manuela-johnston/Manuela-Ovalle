@@ -129,8 +129,8 @@ export default function Player() {
     /**
      * Phases
      */
-    if (bodyPosition.z > 0) explore()
-    if ((bodyPosition.z = 0)) start()
+    if (bodyPosition.z > 1) explore()
+    if (bodyPosition.z < -2) start()
     if (bodyPosition.z < -(blocksCount * 4 + 2)) end()
     if (bodyPosition.y < -4) restart()
   })
@@ -144,7 +144,7 @@ export default function Player() {
         friction={1}
         linearDamping={0.5}
         angularDamping={0.5}
-        position={[0, 1, 0]}
+        position={[0, 1, 12]}
       >
         <mesh castShadow>
           <icosahedronGeometry args={[0.3, 1]} />
