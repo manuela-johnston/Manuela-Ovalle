@@ -90,7 +90,7 @@ export default function Skills() {
           </Col>
         </Row>
         <img
-          className="about-buildings-img"
+          className="about-buildings-img float-img"
           src={aboutBuildings}
           alt="3d models inspired by buildings from the 1960s cartoon the Jetsons, made by Manuela on blender"
         />

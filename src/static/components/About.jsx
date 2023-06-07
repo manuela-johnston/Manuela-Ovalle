@@ -11,7 +11,11 @@ export default function Banner() {
         <Container>
           <Row className="align-items-center">
             <Col sx={10} md={4} xl={6}>
-              <img src={about} className="about-sign " alt="header-image" />
+              <img
+                src={about}
+                className="about-sign float-img"
+                alt="header-image"
+              />
             </Col>
             <Col xs={12} md={6} xl={5}>
               <h1 className="section-header">ABOUT</h1>

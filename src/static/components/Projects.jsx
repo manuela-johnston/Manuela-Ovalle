@@ -3,6 +3,7 @@ import { Container, Row, Col, Tab, Nav } from 'react-bootstrap'
 import ProjectCards from './ProjectCards'
 
 import works from '../../../public/2dModels/worksSign.png'
+import aboutBuildings from '../../../public/2dModels/contactBuildings.png'
 import bowie from '../../../public/img/bowie.png'
 
 export default function Projects() {
@@ -60,7 +61,8 @@ export default function Projects() {
           </Col>
         </Row>
       </Container>
-      <img src={works} className="project-img" />
+      <img src={works} className="project-img float-img" />
+      <img src={aboutBuildings} className="contact-buildings float-img" />
     </section>
   )
 }

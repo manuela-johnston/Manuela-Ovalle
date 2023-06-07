@@ -64,6 +64,10 @@ h1, h2, h3, h4, h5, h6{
   max-width: 80%;
 }
 
+.float-img{
+  animation: updown 3s linear infinite;
+}
+
 /* ~~~~~~~~~NAV~~~~~~~~~~~~~ */
 
 nav.navbar {
@@ -326,7 +330,7 @@ background-color: #f3ec78;
 }
 
 .skill-bx{
-  background: linear-gradient(90deg, #211d586a 0%, #0d0d6c 107.14%);
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
   border-radius: 50px;
   text-align: center;
   padding: 30px 0 20px 0;
@@ -535,10 +539,15 @@ background-color: #f3ec78;
  
 }
 
+.contact-buildings{
+  width: 80%;
+  margin-left: 400px;
+  margin-top: -100px;
+}
+
 /************ Contact Css ************/
 .contact {
-  margin: 0 10% 0 10% ;
-  
+  margin: 100px 10% 0 10% ;
   padding: 60px 0 200px 0;
 }
 .contact img {
@@ -577,12 +586,12 @@ background-color: #f3ec78;
 }
 .contact form button {
   font-weight: 700;
-  color: #000;
-  background-color: #fff;
+  color: #ffffff;
+  background-color: #000000;
   padding: 14px 48px;
   font-size: 18px;
   margin-top: 25px;
-  border-radius: 0;
+  border: solid 2px #fff;
   position: relative;
   transition: 0.3s ease-in-out;
 }
@@ -591,11 +600,12 @@ background-color: #f3ec78;
   position: relative;
 }
 .contact form button:hover {
-  color: #fff;
+  color: #000;
+  background-color: #fff;
 }
 .contact form button::before {
   content: "";
-  background: #121212;
+  background: #fff;
   width: 0;
   height: 100%;
   position: absolute;
@@ -611,6 +621,12 @@ background-color: #f3ec78;
 .contact-form-col{
   background: linear-gradient(90.21deg, #aa367cb8 -5.91%, #492fbdbc 111.58%);
   padding: 50px;
-  
+  border-radius: 30px;
+
 }
 
+.works-buildings{
+width: 90%;
+margin-top: -300px;
+margin-left: 300px;
+}

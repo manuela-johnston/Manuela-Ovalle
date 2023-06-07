@@ -40,7 +40,12 @@ export default function NewsLetter({ onValidated, status, message }) {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email Address"
                 />
-                <button type="submit">Submit</button>
+                <button
+                  className="banner-connect-btn newsletter-btn"
+                  type="submit"
+                >
+                  Submit
+                </button>
               </div>
             </form>
           </Col>

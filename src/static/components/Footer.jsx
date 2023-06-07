@@ -8,9 +8,12 @@ import linkedin from '../../../public/icons/linkedin.svg'
 import email from '../../../public/icons/email.png'
 import manuela from '../../../public/icons/manuela.svg'
 
+import worksBuilding from '../../../public/2dModels/worksBuildings.png'
+
 export default function Footer() {
   return (
     <footer className="footer">
+      <img src={worksBuilding} className="works-buildings float-img" />
       <Container>
         <Row className="align-item-center">
           <MailchimpForm />

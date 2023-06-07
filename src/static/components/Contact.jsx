@@ -49,7 +49,7 @@ export default function Contact() {
       <Container>
         <Row className="align-items-center">
           <Col md={6}>
-            <img src={contactImg} alt="Contact us" />
+            <img src={contactImg} className="float-img" alt="Contact us" />
           </Col>
           <Col md={6} className="contact-form-col">
             <h2>Get In Touch</h2>
@@ -94,7 +94,7 @@ export default function Contact() {
                     placeholder="Message"
                     onChange={(e) => onFormUpdate('message', e.target.value)}
                   />
-                  <button type="submit">
+                  <button className="contact-form-send" type="submit">
                     <span>{buttonText}</span>
                   </button>
                 </Col>
