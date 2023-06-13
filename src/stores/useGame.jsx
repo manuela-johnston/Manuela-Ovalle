@@ -20,8 +20,7 @@ export default create(
 
       explore: () => {
         set((state) => {
-          // console.log('exploring phase')
-          if (state.phase === 'exploring') return { phase: 'ready' }
+          if (state.phase === 'ready') return { phase: 'ready' }
 
           return {}
         })
@@ -30,24 +29,22 @@ export default create(
       start: () => {
         set((state) => {
           //console.log('playing phase')
-          if (state.phase === 'ready')
+          if (state.phase === 'playing')
             return { phase: 'playing', startTime: Date.now() }
-
           return {}
         })
       },
       restart: () => {
         set((state) => {
-          //console.log('restart phase')
           if (state.phase === 'playing' || state.phase === 'ended')
             return { phase: 'ready', blocksSeed: Math.random() }
-
+          //console.log('restart state')
           return {}
         })
       },
       end: () => {
         set((state) => {
-          // console.log('end phase')
+          //console.log('end phase')
           if (state.phase === 'playing')
             return { phase: 'ended', endTime: Date.now() }
 

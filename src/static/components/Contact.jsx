@@ -23,18 +23,18 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault() //Prevents the page reloading after submit
     setButtonText('Sending ...')
-    let response = await fetch('http://localhost/5000', {
+    let response = await fetch('http://localhost:3000/api/contact', {
       method: 'POST',
       headers: {
-        'Content-Type': 'Application/json;charset=utf-8',
+        'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify(formDetails),
     })
 
     setButtonText('Send')
-    let result = response.json()
+    let result = await response.json()
     setFormDetails(formInitialDetails)
-    if (result.conde === 200) {
+    if (result.done === 200) {
       setStatus({ success: true, message: 'Message sent successfully' })
     } else {
       setStatus({

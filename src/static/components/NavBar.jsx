@@ -33,9 +33,9 @@ export default function NavBar() {
     <>
       <Navbar expand="lg" className={scrolled ? 'scrolled' : ''}>
         <Container>
-          <Navbar.Brand href="#home">
+          {/* <Navbar.Brand href="#home">
             <img src={manuela} alt="logo" />
-          </Navbar.Brand>
+          </Navbar.Brand> */}
 
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
@@ -62,13 +62,13 @@ export default function NavBar() {
                 About
               </Nav.Link>
               <Nav.Link
-                href="#previousWork"
+                href="#projects"
                 className={
-                  activeLink === 'previousWork'
+                  activeLink === 'projects'
                     ? 'active navbar-link'
                     : 'navbar-link'
                 }
-                onClick={() => onUpdateActiveLink('previousWork')}
+                onClick={() => onUpdateActiveLink('projects')}
               >
                 Projects
               </Nav.Link>
@@ -88,6 +88,9 @@ export default function NavBar() {
 
               <button className="vvd" onClick={() => console.log('connect')}>
                 <span>Let's Connect</span>
+              </button>
+              <button className="vvd" onClick={() => console.log('connect')}>
+                <span>3d site</span>
               </button>
             </span>
           </Navbar.Collapse>

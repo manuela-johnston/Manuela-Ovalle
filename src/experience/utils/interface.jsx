@@ -35,7 +35,7 @@ export default function Interface() {
       if (time.current) time.current.textContent = elapsedTime
     })
 
-    // //Event Handler for starting the game
+    //Event Handler for starting the game
     // const startGameHandler = addEffect(() => {
     //   start()
     // })

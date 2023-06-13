@@ -3,7 +3,9 @@ import { RigidBody, CuboidCollider } from '@react-three/rapier'
 import { useRef, useState, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Float, Text, useGLTF } from '@react-three/drei'
+
 import Shapes from './Shapes'
+import Models from './Models'
 
 THREE.ColorManagement.legacyMode = false
 
@@ -15,7 +17,7 @@ const floor1Material = new THREE.MeshStandardMaterial({
   roughness: 0,
 })
 const floor2Material = new THREE.MeshStandardMaterial({
-  color: '#222222',
+  color: '#000',
   metalness: 0,
   roughness: 0,
 })
@@ -31,31 +33,38 @@ const wallMaterial = new THREE.MeshStandardMaterial({
   opacity: 0.0,
 })
 
-export function BlockPortfolio({ position = [0, 0, 0] }) {
+export function BlockPortfolio({ position = [0, 1, 0] }) {
   return (
     <>
       {/* PORTFOLIO LEVEL */}
       <group position={position}>
-        <Float floatIntensity={0.25} rotationIntensity={0.25}>
+        <Float floatIntensity={0.05} rotationIntensity={0.02}>
           <Text
             font="./bebas-neue-v9-latin-regular.woff"
-            scale={0.5}
-            maxWidth={0.25}
+            scale={0.3}
+            maxWidth={1}
             lineHeight={0.75}
-            textAlign="right"
-            position={[0.75, 0.65, 6]}
-            rotation-y={-0.25}
+            textAlign="left"
+            position={[0, 4.5, 22]}
           >
-            Manuela Ovalle
+            Welcome
             <meshBasicMaterial toneMapped={false} transparent="false" />
           </Text>
         </Float>
         <RigidBody type="fixed">
           <mesh
             geometry={boxGeometry}
-            material={floor3Material}
-            position={[0, -0.1, 0]}
-            scale={[4, 0.2, 12]}
+            material={floor2Material}
+            position={[0, -0.1, 5]}
+            scale={[4, 0.2, 30]}
+            receiveShadow
+          />
+
+          <mesh
+            geometry={boxGeometry}
+            material={floor2Material}
+            position={[0, -0.1, 20]}
+            scale={[1, 0.2, 8]}
             receiveShadow
           />
         </RigidBody>
@@ -290,7 +299,7 @@ function Bounds({ length = 1 }) {
           position={[2.15, 0.75, -22]}
           geometry={boxGeometry}
           material={wallMaterial}
-          scale={[0.3, 1.5, -(length * 4) - 24]}
+          scale={[0.3, 1.5, -(length * 4) - 25]}
         />
 
         {/* LEFT WALL */}
@@ -298,7 +307,7 @@ function Bounds({ length = 1 }) {
           position={[-2.15, 0.75, -22]}
           geometry={boxGeometry}
           material={wallMaterial}
-          scale={[0.3, 1.5, -(length * 4) - 24]}
+          scale={[0.3, 1.5, -(length * 4) - 25]}
         />
 
         {/* BACK WALL */}

@@ -3,8 +3,9 @@ import { ArrowRightCircle } from 'react-bootstrap-icons'
 import { useEffect, useState } from 'react'
 
 import about from '../../../public/2dModels/aboutSign.png'
+import Skills from './Skills.jsx'
 
-export default function Banner() {
+export default function About() {
   return (
     <>
       <section className="about-banner" id="about">
@@ -18,22 +19,19 @@ export default function Banner() {
               />
             </Col>
             <Col xs={12} md={6} xl={5}>
-              <h1 className="section-header">ABOUT</h1>
+              <h2 className="section-header">About</h2>
 
               <p className="about-bio">
-                Kia ora! Ko Manuela toku ingoa. I am a passionate artist who
-                brings ideas to life through code. <br /> <br />
-                The world of web development has drawn me in because of the
-                endless possibilities it offers for creative exploration and the
-                broad potential reach of any online project. <br /> <br />
-                As a self-employed business owner, I have needed to delve into
-                design, branding and online media. I have a rich background as a
-                self-employed musician, teacher and jeweller. Through this
-                experience I have had many opportunities to delve into web
-                design, brand development and online media. My enthusiasm to
-                find solutions has given me the confidence to put myself in new
-                learning situations.
+                I'm captivated by the limitless creative possibilities of web
+                development and the vast audience it can reach. As a
+                self-employed artist with a diverse background in music,
+                teaching, and jewelry, I've immersed myself in design, branding,
+                and online media. Through my experiences, I've honed my skills
+                in web design and online media, constantly seeking new learning
+                opportunities.
               </p>
+
+              <Skills />
             </Col>
           </Row>
         </Container>

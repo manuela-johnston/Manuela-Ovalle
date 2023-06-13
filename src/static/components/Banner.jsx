@@ -2,6 +2,8 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { ArrowRightCircle } from 'react-bootstrap-icons'
 import { useEffect, useState } from 'react'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import start from '../../../public/2dModels/Entrance.png'
 
 export default function Banner() {
@@ -50,19 +52,15 @@ export default function Banner() {
         <Container>
           <Row className="align-items-center">
             <Col sx={12} md={6} xl={7}>
-              <span className="tagline">Welcome to my portfolio</span>
-              <h1>
-                Kia ora! <br /> I'm Manuela
-              </h1>
+              <h2>Kia ora!</h2>
+              <h1>I'm Manuela</h1>
               <p>
-                I am a creative web developer based in Auckland, New Zealand.
+                A creative web developer <br />
+                based in Tāmaki Makaurau, Auckland
+                <br /> New Zealand.
               </p>
-              <button
-                className=" banner-connect-btn"
-                onClick={() => console.log('connect')}
-              >
-                Let's connect
-                <ArrowRightCircle size={25} />
+              <button className="vvd" onClick={() => console.log('connect')}>
+                <span>Get to know me</span>
               </button>
             </Col>
             <Col xs={12} md={6} xl={5}>

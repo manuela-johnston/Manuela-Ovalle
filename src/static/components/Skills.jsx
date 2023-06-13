@@ -21,25 +21,25 @@ export default function Skills() {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 9,
+      items: 5,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 7,
+      items: 5,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 4,
+      items: 3,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 3,
+      items: 2,
     },
   }
 
   return (
     <section className="skill" id="skills">
-      <h2 className="tech-stack-header">TECH STACK</h2>
+      <h2 className="tech-stack-header">Tech Stack</h2>
       <Container>
         <Row>
           <Col>
@@ -89,11 +89,6 @@ export default function Skills() {
             </div>
           </Col>
         </Row>
-        <img
-          className="about-buildings-img float-img"
-          src={aboutBuildings}
-          alt="3d models inspired by buildings from the 1960s cartoon the Jetsons, made by Manuela on blender"
-        />
       </Container>
     </section>
   )

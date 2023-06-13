@@ -1,13 +1,12 @@
 import './style.css'
 import ReactDOM from 'react-dom/client'
 import * as React from 'react'
-
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 //Pages
 import App from '../App'
 import StaticPage from './static/2dSite.jsx'
-import Space from '../Space.jsx'
+import Space from '../3dSite.jsx'
 
 const router = createBrowserRouter([
   {

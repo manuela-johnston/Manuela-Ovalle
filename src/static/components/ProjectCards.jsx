@@ -1,13 +1,13 @@
 import { Col } from 'react-bootstrap'
 
-export default function ProjectCards({ title, description, imgUrl }) {
+export default function ProjectCards(props) {
   return (
-    <Col sm={6} md={4}>
-      <div className="proj-imgbx">
-        <img src={imgUrl} />
-        <div className="proj-txtx">
-          <h4>{title}</h4>
-          <span>{description}</span>
+    <Col>
+      <div className="project-card-item">
+        <img src={props.imgUrl} />
+        <div className="project-card-text">
+          <h4>{props.title}</h4>
+          <span>{props.description}</span>
         </div>
       </div>
     </Col>

@@ -36,7 +36,7 @@ export default function Player() {
   }
 
   const reset = () => {
-    body.current.setTranslation({ x: 0, y: 1, z: 0 })
+    body.current.setTranslation({ x: 0, y: 1, z: 13 })
     body.current.setLinvel({ x: 0, y: 1, z: 0 })
     body.current.setAngvel({ x: 0, y: 1, z: 0 })
   }
@@ -47,7 +47,9 @@ export default function Player() {
     const unsubscribeReset = useGame.subscribe(
       (state) => state.phase,
       (phase) => {
-        if (phase === 'ready') reset()
+        if (phase === 'ready' || phase === 'exploring') {
+        }
+        reset()
       }
     )
 
@@ -112,12 +114,13 @@ export default function Player() {
 
     const cameraPosition = new THREE.Vector3()
     cameraPosition.copy(bodyPosition)
-    cameraPosition.z += 4.25
-    cameraPosition.y += 0.65
+    cameraPosition.z += 6.25
+    cameraPosition.y += 0.9
 
     const cameraTarget = new THREE.Vector3()
     cameraTarget.copy(bodyPosition)
-    cameraTarget.y += 0.25
+    cameraTarget.y += 1.5
+    cameraTarget.z += 0.5
 
     //Update smooth camera position
     smoothedCameraPosition.lerp(cameraPosition, 5 * delta)
@@ -129,10 +132,10 @@ export default function Player() {
     /**
      * Phases
      */
-    if (bodyPosition.z > 1) explore()
-    if (bodyPosition.z < -2) start()
-    if (bodyPosition.z < -(blocksCount * 4 + 2)) end()
-    if (bodyPosition.y < -4) restart()
+    if (bodyPosition.z >= 1) explore()
+    if (bodyPosition.z <= 0) start()
+    if (bodyPosition.z <= -(blocksCount * 4 + 2)) end()
+    if (bodyPosition.y <= -4) restart()
   })
 
   return (
@@ -144,7 +147,7 @@ export default function Player() {
         friction={1}
         linearDamping={0.5}
         angularDamping={0.5}
-        position={[0, 1, 12]}
+        position={[0, 1, 32]}
       >
         <mesh castShadow>
           <icosahedronGeometry args={[0.3, 1]} />

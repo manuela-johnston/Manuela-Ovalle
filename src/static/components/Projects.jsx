@@ -1,4 +1,5 @@
 import { Container, Row, Col, Tab, Nav } from 'react-bootstrap'
+import Carousel from 'react-multi-carousel'
 
 import ProjectCards from './ProjectCards'
 
@@ -9,60 +10,68 @@ import bowie from '../../../public/img/bowie.png'
 export default function Projects() {
   const project = [
     {
+      id: 1,
       title: 'Frankie Ruins',
       description: 'design, development and 3dModels',
       imgUrl: bowie,
     },
     {
+      id: 2,
       title: 'Elf.co',
       description: 'development and design',
       imgUrl: bowie,
     },
   ]
 
+  const projectElements = project.map((work) => {
+    return <ProjectCards key={work.id} {...work} />
+  })
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 3,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  }
+
   return (
-    <section className="project" id="project">
-      <Container>
-        <Row>
-          <Col>
-            <h2>Projects</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-              magnam?
-            </p>
-            <Tab.Container id="projects-tabs" defaultActiveKey="first">
-              <Nav
-                variant="pills"
-                className="nav-pills mb-5 justify-content-center align-items-center"
-                id="pills-tab"
-              >
-                <Nav.Item>
-                  <Nav.Link eventKey="first">Tab one</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="second">Tab two</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="third">Tab three</Nav.Link>
-                </Nav.Item>
-              </Nav>
-              <Tab.Content>
-                <Tab.Pane eventKey="first">
-                  <Row>
-                    {project.map((project, index) => {
-                      return <ProjectCards key={index} {...project} />
-                    })}
-                  </Row>
-                </Tab.Pane>
-                <Tab.Pane eventKey="second">Lorem Ipsum</Tab.Pane>
-                <Tab.Pane eventKey="third">Lorem Ipsum</Tab.Pane>
-              </Tab.Content>
-            </Tab.Container>
-          </Col>
-        </Row>
-      </Container>
-      <img src={works} className="project-img float-img" />
-      <img src={aboutBuildings} className="contact-buildings float-img" />
-    </section>
+    <>
+      <section className="project" id="project">
+        <h2 className="section-header">Projects</h2>
+        <Container>
+          <Row>
+            <Col>
+              <div className="project-bx">
+                <Carousel
+                  responsive={responsive}
+                  infinite={true}
+                  className="project-slider"
+                >
+                  {projectElements.map((element) => (
+                    <div className="project-item" key={element.key}>
+                      {element}
+                    </div>
+                  ))}
+                </Carousel>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+        {/* <img src={works} className="project-img float-img" />
+      <img src={aboutBuildings} className="contact-buildings float-img" /> */}
+      </section>
+    </>
   )
 }
