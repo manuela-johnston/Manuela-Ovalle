@@ -59,9 +59,9 @@ export default function Hero() {
                 based in Tāmaki Makaurau, Auckland
                 <br /> New Zealand.
               </p>
-              <button className="vvd" onClick={() => console.log('connect')}>
+              {/* <button className="vvd" onClick={() => console.log('connect')}>
                 <span>Get to know me</span>
-              </button>
+              </button> */}
             </Col>
             <Col xs={12} md={6} xl={5}>
               <img src={start} alt="header-image" />
