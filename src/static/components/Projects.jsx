@@ -3,27 +3,12 @@ import Carousel from 'react-multi-carousel'
 
 import ProjectCards from './ProjectCards'
 
-import works from '../../../public/2dModels/worksSign.png'
-import aboutBuildings from '../../../public/2dModels/contactBuildings.png'
-import bowie from '../../../public/img/bowie.png'
+import { posts } from '../blog/blogData.js'
 
 export default function Projects() {
-  const project = [
-    {
-      id: 1,
-      title: 'Frankie Ruins',
-      description: 'design, development and 3dModels',
-      imgUrl: bowie,
-    },
-    {
-      id: 2,
-      title: 'Elf.co',
-      description: 'development and design',
-      imgUrl: bowie,
-    },
-  ]
+  const blogData = posts
 
-  const projectElements = project.map((work) => {
+  const projectElements = blogData.map((work) => {
     return <ProjectCards key={work.id} {...work} />
   })
   const responsive = {
@@ -48,8 +33,8 @@ export default function Projects() {
 
   return (
     <>
-      <section className="project" id="project">
-        <h2 className="section-header">Projects</h2>
+      <section className="project" id="projects">
+        <h2 className="project-section-header">Projects</h2>
         <Container>
           <Row>
             <Col>
@@ -69,8 +54,6 @@ export default function Projects() {
             </Col>
           </Row>
         </Container>
-        {/* <img src={works} className="project-img float-img" />
-      <img src={aboutBuildings} className="contact-buildings float-img" /> */}
       </section>
     </>
   )

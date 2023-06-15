@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 
 import contactImg from '../../../public/2dModels/contactSign.png'
+import email from '../../../public/icons/email.png'
 
 export default function Contact() {
   const formInitialDetails = {
@@ -46,11 +47,8 @@ export default function Contact() {
 
   return (
     <section className="contact" id="connect">
-      <Container>
+      <Container className="contact-bx">
         <Row className="align-items-center">
-          <Col md={6}>
-            <img src={contactImg} className="float-img" alt="Contact us" />
-          </Col>
           <Col md={6} className="contact-form-col">
             <h2>Get In Touch</h2>
             <form onSubmit={handleSubmit}>
@@ -110,7 +108,20 @@ export default function Contact() {
                   </Col>
                 )}
               </Row>
+              <a
+                href="mailto:manuelaovalle1@gmail.com"
+                className="contact-email-link"
+              >
+                <p>Or Flick me an email </p>
+              </a>
             </form>
+          </Col>
+          <Col md={6}>
+            <img
+              src={contactImg}
+              className="float-img contact-sign-img"
+              alt="Contact us"
+            />
           </Col>
         </Row>
       </Container>

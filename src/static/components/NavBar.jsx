@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { NavLink } from 'react-router-dom'
 
 import '../../static/2dSite.css'
 
@@ -44,7 +45,7 @@ export default function NavBar() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link
-                href="#home"
+                href="/2d/#home"
                 className={
                   activeLink === 'home' ? 'active navbar-link' : 'navbar-link'
                 }
@@ -53,7 +54,7 @@ export default function NavBar() {
                 Home
               </Nav.Link>
               <Nav.Link
-                href="#about"
+                href="/2d/#about"
                 className={
                   activeLink === 'about' ? 'active navbar-link' : 'navbar-link'
                 }
@@ -62,7 +63,7 @@ export default function NavBar() {
                 About
               </Nav.Link>
               <Nav.Link
-                href="#projects"
+                href="/2d/#projects"
                 className={
                   activeLink === 'projects'
                     ? 'active navbar-link'
@@ -75,22 +76,34 @@ export default function NavBar() {
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
-                <a href="#">
+                <a href="https://github.com/Manuela-Ovalle">
                   <img src={github} alt="" />
                 </a>
-                <a href="#">
+                <a href="https://www.linkedin.com/in/manuela-ovalle-b5660a259/">
                   <img src={linkedin} alt="" />
                 </a>
-                <a href="#">
+                <a href="mailto:manuelaovalle1@gmail.com">
                   <img src={email} alt="" />
                 </a>
               </div>
 
-              <button className="vvd" onClick={() => console.log('connect')}>
-                <span>Let's Connect</span>
+              <button>
+                <Nav.Link
+                  href="#connect"
+                  className={
+                    activeLink === 'projects'
+                      ? 'active navbar-link'
+                      : 'navbar-link'
+                  }
+                  onClick={() => onUpdateActiveLink('projects')}
+                >
+                  <span className="button-text">Let's Connect</span>
+                </Nav.Link>
               </button>
-              <button className="vvd" onClick={() => console.log('connect')}>
-                <span>3d site</span>
+              <button className="vvd">
+                <NavLink to="/3d">
+                  <span className="button-text">3d site</span>
+                </NavLink>
               </button>
             </span>
           </Navbar.Collapse>

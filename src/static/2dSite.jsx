@@ -3,7 +3,7 @@ import '../static/2dSite.css'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 
 import NavBar from './components/NavBar'
-import Banner from './components/Banner'
+import Hero from './components/Hero'
 import About from './components/About'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
@@ -16,7 +16,7 @@ export default function StaticPage() {
         {/* HEADER */}
 
         <NavBar />
-        <Banner />
+        <Hero />
         <About />
         <Projects />
         <Contact />

@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from '../App'
 import StaticPage from './static/2dSite.jsx'
 import Space from '../3dSite.jsx'
+import Blog from '../src/static/blog/Blog.jsx'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,8 @@ const router = createBrowserRouter([
     path: '3d',
     element: <Space />,
   },
+
+  { path: '/2d/blog/:id', element: <Blog /> },
 ])
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))

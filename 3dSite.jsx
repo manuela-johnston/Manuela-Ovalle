@@ -30,8 +30,9 @@ export default function Space() {
           <Experience />
           <fog attach="fog" args={['#0700b2', 1, 100]} />
         </Canvas>
-        <Interface />
+        {/* <Interface /> */}
       </KeyboardControls>
+      $
     </>
   )
 }

@@ -1,15 +1,31 @@
 import { Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export default function ProjectCards(props) {
   return (
     <Col>
-      <div className="project-card-item">
-        <img src={props.imgUrl} />
-        <div className="project-card-text">
-          <h4>{props.title}</h4>
-          <span>{props.description}</span>
+      <Link to={props.blogUrl} className="blog-button">
+        <div className="project-card">
+          <div className="image-container">
+            {/* <img
+            className="project-card-img"
+            src={props.imgUrl}
+            alt={props.title}
+          /> */}
+            <video
+              className="project-vid"
+              src={props.video}
+              autoPlay
+              loop
+              muted
+            />
+          </div>
+          <div className="project-card-content">
+            <h4>{props.title}</h4>
+            <p>{props.description}</p>
+          </div>
         </div>
-      </div>
+      </Link>
     </Col>
   )
 }

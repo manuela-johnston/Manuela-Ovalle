@@ -59,12 +59,6 @@ section{
   width: 100%;
 }
 
-.paral{
-  top: 100;
-  margin-right: 90px;
-  margin-left: 90px;
-  max-width: 80%;
-}
 
 .float-img{
   animation: updown 3s linear infinite;
@@ -73,13 +67,13 @@ section{
 /*~~~~~~~~~~HOME PAGE ~~~~~~~*/
 
 .home-page{
-  background-image: url("../../public/jeremy-perkins-uhjiu8FjnsQ-unsplash.jpg");
-  height: 100%;
+width: 80%;
+  margin: 200px;
 }
 
 .home-page-container{
   min-height: 100%;
-  padding: 150px;
+  /* padding: 150px; */
 }
 
 .home-page h1{
@@ -90,27 +84,33 @@ margin-bottom: 10px;
 }
 
 .home-page h3{
-color: var(--hot-pink);
-font-size: 30px;
+  font-size: 20px !important;
+  font-weight: 700;
+  color: #B8B8B8;
+  margin: 20px 0 60px 0;
 }
 
-.home-pg-button{
-background: linear-gradient(90deg, #8C54ED 0%, #2625ED 107.14%);
-border-radius: 12px;
-border: none;
-padding: 10px;
-color: #fff;
-font-weight: 600;
-width: 200px;
-margin: 50px 20px 0 0 ;
-
+.home-pg-button  {
+  font-weight: 700;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 18px 34px;
+  font-size: 18px;
+  margin: 20px;
+	position: relative;
+	background-color: transparent;
+	transition: 0.3s ease-in-out;
 }
 
-.home-pg-button:hover{
-  background: white;
+.home-pg-button:hover {
+  font-weight: 700;
   color: #000;
-  transition: 0.3s ease-in-out;
-  }
+  border: 1px solid #fff;
+  padding: 18px 34px;
+  font-size: 18px;
+	background-color: #fff;
+	transition: 0.3s ease-in-out;
+}
 
 /* ~~~~~~~~~NAV~~~~~~~~~~~~~ */
 
@@ -196,12 +196,22 @@ span.navbar-text {
 .navbar-text button span {
   z-index: 1;
 }
+.button-text {
+  color: #fff;
+  text-decoration: none;
+}
+.button-text:hover {
+  color: #000;
+  text-decoration: none;
+}
+
 .navbar-text button::before {
   content: "";
   width: 0%;
   height: 100%;
   position: absolute;
   background-color: #fff;
+  color: #000;
   left: 0;
   top: 0;
   z-index: -1;
@@ -456,86 +466,165 @@ background-color: #f3ec78;
   opacity: 80%;
 }
 
-
-
 /************ Projects Css ************/
 .project {
-  
   padding: 80px 0;
-  margin: 80px 10% 20px 10%;
+  margin: 0 10% 20px 10%;
   width: 80%;
  height: 100vh;
 }
 
 .project-bx{
-  background-color: #282828;
+  background-color: #000;
   border-radius: 10px;
-  text-align: center;
+  text-align: left;
   padding: 30px 0 20px 0;
   z-index: 1;
   height: 400px;
 }
 
-.project-item{
-  height: 330px;
-  width: 300px;
-margin: 20px auto 20px auto;
-  
-}
-
-.project-card-item{
-  width: 100%;
-  height:100%;
-
-}
-
-.project h2 {
+.project-section-header{
 	font-size: 45px;
 	font-weight: 700;
-  text-align: left;
-  
+  margin-bottom: 30px;
 }
 
+.project-item{
+  height: 400px;
+  width: 260px;
+margin: 20px auto 20px auto;
 
+}
 
+.blog-button{
+  text-decoration: none;
+}
+.project-card {
+  border-radius: 15px;
+  height: 350px;
+  display: flex;
+  flex-direction: column; 
+}
+
+.image-container {
+  flex-grow: 1; 
+  display: flex;
+  justify-content: center;
+}
+
+.project-card-content h4 {
+  display: inline;
+  position: relative;
+  color: #fff;
+}
+
+.project-card-content h4:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.project-card-content h4:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.project-card-content{
+  margin-top: 20px;
+}
+
+.project-card-content h4 {
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  text-align: left;
+  margin: 0;
+
+}
+
+.project-card-content p {
+  font-weight: 500;
+  color: #B8B8B8;
+  text-decoration: none;
+  text-align: left;
+}
+
+.project-vid{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+.project button{
+  background-color: #000;
+  box-shadow: none;
+  border: #000;
+}
 /************ Contact Css ************/
 .contact {
-  margin: 100px 10% 0 10% ;
-  padding: 60px 0 200px 0;
+margin: auto ; 
+height: 100vh;
+width: 80%;
 }
-.contact img {
-  width: 92%;
+
+.contact-bx{
+width: 100%;
+align-self: center;
 }
+
 .contact h2 {
 	font-size: 45px;
 	font-weight: 700;
   margin-bottom: 30px;
 }
-.contact form input, .contact form textarea {
+
+.contact form input{
   width: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
+  background: #000;
+  border: none;
+  border-bottom: 1px solid #fff;
   color: #fff;
-  margin: 0 0 8px 0;
-  padding: 18px 26px;
-  font-weight: 500;
+  margin: 15px;
+  height: 80px;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  transition: 0.3s ease-in-out;
+}
+
+.contact form textarea {
+  width: 105%;
+  background: #000;
+  border: 1px solid #fff;
+  color: #fff;
+  margin: 15px 0 0 0 ;
+  padding: 26px;
+  font-weight: 600;
   font-size: 18px;
   letter-spacing: 0.8px;
   transition: 0.3s ease-in-out;
 }
 .contact form input:focus, .contact form textarea:focus {
-  background: rgba(255, 255, 255, 1);
-  color: #121212;
+  background: #1c1c1c;
+  color: #fff;
 }
 .contact form input::placeholder, .contact form textarea::placeholder {
   font-size: 16px;
-  font-weight: 400;
-  color: #fff;
+  font-weight: 600;
+  color: #939393;
 }
 .contact form input:focus::placeholder, .contact form textarea:focus::placeholder {
-  color: #121212;
-  opacity: 0.8;
+  color: #fff;
+  opacity: 1;
 }
 .contact form button {
   font-weight: 700;
@@ -547,6 +636,7 @@ margin: 20px auto 20px auto;
   border: solid 2px #fff;
   position: relative;
   transition: 0.3s ease-in-out;
+  margin-bottom: 40px;
 }
 .contact form button span {
   z-index: 1;
@@ -572,16 +662,173 @@ margin: 20px auto 20px auto;
 }
 
 .contact-form-col{
-  background: linear-gradient(90.21deg, #aa367cb8 -5.91%, #492fbdbc 111.58%);
+
   padding: 50px;
   border-radius: 30px;
 
 }
 
-.works-buildings{
-width: 90%;
-margin-top: -300px;
-margin-left: 300px;
+.contact-sign-img{
+  width: 60%;
+  margin-left: 100px;
 }
 
+.contact-email-link{
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  width: 100%;
+  font-weight: 600;
+}
+.contact-email-link:hover{
+  color:#B8B8B8;
+}
+
+
 /************ Footer Css ************/
+.footer {
+align-self: left;
+}
+
+.footer h1{
+  margin: 0 200px 0 200px ;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.site-preview-p {
+  margin: 0 200px 0 200px ;
+  color: #B8B8B8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  width: 100%;
+}
+
+.site-preview video{
+  margin: auto;
+  width: 60%;
+  align-self: center;
+
+}
+
+.site-preview{
+  align-items: center;
+  
+}
+
+.marble-run-link{
+  text-decoration: none;
+}
+
+.marble-run-link h1 {
+  display: inline;
+  position: relative;
+  color: #fff;
+}
+
+.marble-run-link h1:after {
+  content: '';
+  position: absolute;
+  width: 25%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 11px;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.marble-run-link h1:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.footer video{
+  margin-bottom: 100px;
+}
+/************ Blog ********************/
+.blog-post{
+  
+  margin: 200px auto auto auto;
+  width: 80%;
+}
+
+.blog-post section{
+  height: 100vh;
+}
+
+.blog-post h2{
+  font-size: 45px;
+  font-weight: 700;
+  margin :0 0 40px 0;
+}
+
+.blog-post h3{
+  font-weight: 600;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  text-align: left;
+  margin: 80px 0 0 0;
+  
+}
+
+.blog-post h4{
+  font-weight: 500;
+  font-size: 18px;
+  color: #B8B8B8;
+  text-decoration: none;
+  text-align: left;
+  width: 100%;
+  margin :80 0 80px 0;
+}
+
+.blog-post p{
+  font-weight: 500;
+  font-size: 16px;
+  color: #B8B8B8;
+  text-decoration: none;
+  text-align: left;
+  width: 100%;
+}
+
+.blog-post img{
+  width: 100%;
+  margin: 80px 0 80px 0;
+}
+
+.post-img{
+  width: 50% !important;
+}
+
+.blog-site-button  {
+  display: block;
+  width: 40%;
+  text-decoration: none;
+  font-weight: 700;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 18px 34px;
+  font-size: 18px;
+  margin: 20px;
+	background-color: transparent;
+	transition: 0.3s ease-in-out;
+}
+
+.blog-site-button:hover {
+  font-weight: 700;
+  color: #000;
+  border: 1px solid #fff;
+  padding: 18px 34px;
+  font-size: 18px;
+	background-color: #fff;
+	transition: 0.3s ease-in-out;
+}
