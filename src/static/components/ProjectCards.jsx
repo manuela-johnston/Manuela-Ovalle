@@ -7,11 +7,6 @@ export default function ProjectCards(props) {
       <Link to={props.blogUrl} className="blog-button">
         <div className="project-card">
           <div className="image-container">
-            {/* <img
-            className="project-card-img"
-            src={props.imgUrl}
-            alt={props.title}
-          /> */}
             <video
               className="project-vid"
               src={props.video}

@@ -33,7 +33,7 @@ export default function Blog() {
                 <h2>{blog.title}</h2>
 
                 <NavLink className="blog-site-button" to={blog.site}>
-                  3D Site
+                  Launch Site
                 </NavLink>
                 <NavLink className="blog-site-button" to={blog.github}>
                   Github repo
